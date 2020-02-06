@@ -1,2 +1,14 @@
+- name: Disable swap
+  command: swapoff -a
+
+- name: Pull images for setting up a kubernetes cluster
+  command: kubeadm config images pull
+
 - name: Install master with kubeadm
   command: kubeadm init {{ kubeadm_init_args }}
+
+- name: Install calico network addon
+  command: kubectl apply -f https://docs.projectcalico.org/v3.8/manifests/calico.yaml
+
+- name: Untaint master node
+  command: kubectl taint nodes --all node-role.kubernetes.io/master-
