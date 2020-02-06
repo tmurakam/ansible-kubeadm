@@ -1,0 +1,2 @@
+- name: Install master with kubeadm
+  command: kubeadm init {{ kubeadm_init_args }}
