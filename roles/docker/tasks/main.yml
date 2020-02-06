@@ -2,3 +2,9 @@
   yum:
     name: docker
     state: present
+
+- name: Enable docker
+  service:
+    name: docker
+    enabled: yes
+    state: started
