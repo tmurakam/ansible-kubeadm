@@ -4,3 +4,5 @@
 
   roles:
     - disable_selinux
+    - docker
+    - kubepkgs
